@@ -20,7 +20,7 @@ user=> (require '[r2pipe.core :refer :all])
 user=> (r2-load "binary")
 #'r2pipe.lib/pipe
 
-;; Execute a command in r2 and print the result
+;; Execute a command in r2
 user=> (r2-write "pi 5")
 nil
 
