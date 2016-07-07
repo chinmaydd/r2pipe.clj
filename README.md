@@ -16,27 +16,15 @@ In Leiningen:
 ;; Start up the REPL and include r2 pipe lib
 user=> (require '[r2pipe.core :refer :all])
 
-;; Load the file into r2
-user=> (r2-load "binary")
-#'r2pipe.lib/pipe
+;; Configure the r2 path. It will default to "/usr/bin/r2".
+user=> (configure-path "/usr/bin/r2")
+
+;; Open the file into r2
+user=> (r2open "binary")
+#'r2pipe.core/pipe
 
 ;; Execute a command in r2
-user=> (r2-write "pi 5")
-nil
-
-;; Print the output to the console
-user=> (r2-print)
-xor ebp, ebp
-pop esi
-mov ecx, esp
-and esp, 0xfffffff0
-push eax
-nil
-
-;; You can also ask for the output in the form of a string for further parsing
-user=> (r2-write "pi 5")
-nil
-user=> (r2-string)
+user=> (r2cmd "pi 5")
 "xor ebp, ebp\npop esi\nmov ecx, esp\nand esp, 0xfffffff0\npush eax\n"
 ```
 
